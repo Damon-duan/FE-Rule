@@ -1,30 +1,30 @@
-  
 
-[1 缩进](#1-缩进)  
 
-[2 分号](#2-分号)  
+[1 缩进](#1-缩进)
 
-[3 空格](#3-空格)  
+[2 分号](#2-分号)
 
-[4 换行](#4-换行)  
+[3 空格](#3-空格)
 
-[5 注释](#5-注释)  
+[4 换行](#4-换行)
 
-[6 命名](#6-命名)  
+[5 注释](#5-注释)
 
-[7 声明顺序](#7-声明顺序)  
+[6 命名](#6-命名)
 
-[8 颜色](#8-颜色)  
+[7 声明顺序](#7-声明顺序)
 
-[9 媒体查询](#9-媒体查询)  
+[8 颜色](#8-颜色)
+
+[9 媒体查询](#9-媒体查询)
 
 
 # 1 缩进
 
-使用soft tab（4个空格）。  
+使用soft tab（4个空格）。
 
 ```css
-.element{
+.element {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -36,10 +36,10 @@
 
 # 2 分号
 
-每个属性声明末尾都要加分号。  
+每个属性声明末尾都要加分号。
 
 ```css
-.element{
+.element {
     width: 20px;
     height: 20px;
     background-color: red;
@@ -49,7 +49,7 @@
 
 # 3 空格
 
-以下几种情况不需要空格：  
+以下几种情况不需要空格：
 
 - 属性名后
 - 多个规则的分隔符','前
@@ -57,7 +57,7 @@
 - 属性值中'('后和')'前
 - 行末不要有多余的空格
 
-以下几种情况需要空格：  
+以下几种情况需要空格：
 
 - 属性值前
 - 选择器'>', '+', '~'前后
@@ -67,13 +67,13 @@
 
 ```css
 /* not good */
-.element{
+.element {
     color :red! important;
     background-color: rgba(0,0,0,.5);
 }
 
 /* good */
-.element{
+.element {
     color: red !important;
     background-color: rgba(0, 0, 0, .5);
 }
@@ -84,7 +84,7 @@
 }
 
 /* good */
-.element > .dialog{
+.element > .dialog {
     ...
 }
 
@@ -96,7 +96,7 @@
 }
 
 /* good */
-@if{
+@if {
     ...
 } @else {
     ...
@@ -106,10 +106,10 @@
 
 # 4 换行
 
-以下几种情况不需要换行：  
+以下几种情况不需要换行：
 
 - '{'前
-以下几种情况需要换行：  
+以下几种情况需要换行：
 
 - '{'后和'}'前
 - 每个属性独占一行
@@ -121,45 +121,45 @@
 {color: red; background-color: black;}
 
 /* good */
-.element{
+.element {
     color: red;
     background-color: black;
 }
 
 /* not good */
-.element, .dialog{
+.element, .dialog {
     ...
 }
 
 /* good */
 .element,
-.dialog{
+.dialog {
     ...
 }
 ```
 
 # 5 注释
 
-注释统一用'/* */'（scss中也不要用'//'），具体参照右边的写法；  
+注释统一用'/* */'（scss中也不要用'//'），具体参照右边的写法；
 
-缩进与下一行代码保持一致；  
+缩进与下一行代码保持一致；
 
-可位于一个代码行的末尾，与代码间隔一个空格。  
+可位于一个代码行的末尾，与代码间隔一个空格。
 
 ```css
 /* Modal header */
-.modal-header{
+.modal-header {
     ...
 }
 
 /*
  * Modal header
  */
-.modal-header{
+.modal-header {
     ...
 }
 
-.modal-header{
+.modal-header {
     /* 50px */
     width: 50px;
 
@@ -189,26 +189,26 @@
 $color-black: #000;>
 
 /* 插件盒子 */
-.daq-dialog{
+.daq-dialog {
     ...
 }
 ```
 
 # 7 声明顺序
 
-相关的属性声明应当归为一组，并按照下面的顺序排列：  
+相关的属性声明应当归为一组，并按照下面的顺序排列：
 
 - Positioning
 - 2. Box model
 - 3. Typographic
 - 4. Visual
-由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。  
+由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。
 
-其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。  
+其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。
 
 
 ```css
-.element{
+.element {
     /* Positioning */
     position: absolute;
     top: 0;
@@ -241,19 +241,19 @@ $color-black: #000;>
 
 # 8 颜色
 
-颜色16进制用小写字母；  
+颜色16进制用小写字母；
 
-颜色16进制尽量用简写。  
+颜色16进制尽量用简写。
 
-```css 
+```css
 /* not good */
-.element{
+.element {
     color: #ABCDEF;
     background-color: #001122;
 }
 
 /* good */
-.element{
+.element {
     color: #abcdef;
     background-color: #012;
 }
@@ -262,24 +262,24 @@ $color-black: #000;>
 
 # 9 媒体查询
 
-尽量将媒体查询的规则靠近与他们相关的规则，不要将他们一起放到一个独立的样式文件中，或者丢在文档的最底部，这样做只会让大家以后更容易忘记他们。  
+尽量将媒体查询的规则靠近与他们相关的规则，不要将他们一起放到一个独立的样式文件中，或者丢在文档的最底部，这样做只会让大家以后更容易忘记他们。
 
 
-```css 
-.element{
+```css
+.element {
     ...
 }
 
-.element-avatar{
+.element-avatar {
     ...
 }
 
-@media (min-width: 480px){
-    .element{
+@media (min-width: 480px) {
+    .element {
         ...
     }
 
-    .element-avatar{
+    .element-avatar {
         ...
     }
 }
