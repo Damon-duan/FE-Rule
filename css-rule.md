@@ -18,6 +18,8 @@
 
 [9 媒体查询](#9-媒体查询)
 
+[10 属性简写](#10-属性简写)
+
 
 # 1 缩进
 
@@ -282,6 +284,39 @@ $color-black: #000;>
     .element-avatar {
         ...
     }
+}
+```
+
+
+# 10 属性简写
+
+坚持限制属性取值简写的使用，属性简写需要你必须显式设置所有取值。常见的属性简写滥用包括:
+
+* padding
+* margin
+* font
+* background
+* border
+* border-radius
+
+大多数情况下，我们并不需要设置属性简写中包含的所有值。例如，HTML 头部只设置上下的 margin，所以如果需要，只设置这两个值。过度使用属性简写往往会导致更混乱的代码，其中包含不必要的重写和意想不到的副作用。
+
+```css
+/* 不推荐 */
+.element {
+    margin: 0 0 10px;
+    background: red;
+    background: url("image.jpg");
+    border-radius: 3px 3px 0 0;
+}
+
+/* 推荐 */
+.element {
+    margin-bottom: 10px;
+    background-color: red;
+    background-image: url("image.jpg");
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 ```
 
