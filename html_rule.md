@@ -8,15 +8,13 @@
 
 [5 Description和Keywords](#5-Description和Keywords)
 
-[6 IE兼容模式](#6-IE兼容模式)
+[6 引入CSS, JS](#7-%E5%BC%95%E5%85%A5css-js)
 
-[7 引入CSS, JS](#7-%E5%BC%95%E5%85%A5css-js)
+[7 属性顺序](#8-属性顺序)
 
-[8 属性顺序](#8-属性顺序)
+[8 boolean属性](#9-boolean属性)
 
-[9 boolean属性](#9-boolean属性)
-
-[10 低权重原则]避免滥用子选择器
+[9 低权重原则]避免滥用子选择器
 
 
 
@@ -112,27 +110,7 @@
 <meta name="Keywords" content="" />
 ```
 
-# 6 IE兼容模式
-
-用 &lt;meta&gt; 标签可以指定页面应该用什么版本的IE来渲染；
-
-如果你想要了解更多，请点击这里；
-
-不同doctype在不同浏览器下会触发不同的渲染模式（这篇文章总结的很到位）。
-
-
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    </head>
-    ...
-</html>
-```
-
-# 7 引入CSS, JS
+# 6 引入CSS, JS
 
 根据HTML5规范, 通常在引入CSS和JS时不需要指明 type，因为 text/css 和 text/javascript 分别是他们的默认值。
 
@@ -153,7 +131,7 @@ HTML5 规范链接
 </style>
 ```
 
-# 8 属性顺序
+# 7 属性顺序
 
 属性应该按照特定的顺序出现以保证易读性；(不做硬性要求)
 
@@ -180,7 +158,7 @@ id更加具体且应该尽量少使用，所以将它放在第二位。
 <img src="..." alt="..."/>
 ```
 
-# 9 boolean属性
+# 8 boolean属性
 
 boolean属性指不需要声明取值的属性，XHTML需要每个属性声明取值，但是HTML5并不需要；
 
@@ -199,7 +177,7 @@ boolean属性的存在表示取值为true，不存在则表示取值为false。
 ```
 
 
-# 10 避免滥用子选择器
+# 9 避免滥用子选择器
 
 HTML标签的权重是1，class的权重是10，id的权重是100，例如p的权重是1，“div em”的权重是1+1=2，“strong.demo”的权重是10+1=11，“#test.red”的权重是100+10=110.
 

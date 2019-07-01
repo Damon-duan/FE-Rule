@@ -91,5 +91,5 @@ Frontend前端目录结构如下:
 │          index.vue
 │          user-center.vue
 │
-└─static
+└─static                        静态资源存放位置
 ```
