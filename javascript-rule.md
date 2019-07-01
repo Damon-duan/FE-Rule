@@ -866,7 +866,7 @@ __示例：__
 
 ```javascript
 var str = '我是字符串';
-var html = '<div class="cls">拼接HTML可以省去双引号转义</div>';
+var html = '<div class="text">拼接HTML可以省去双引号转义</div>';
 ```
 
 __【建议】使用 数组 或 + 拼接字符串__
@@ -923,9 +923,9 @@ __推荐：__
 
 ```javascript
 var info = {
-    'name': 'someone',
-    'age': 28,
-    'more-info': '...'
+    name: 'someone',
+    age: 28,
+    moreInfo: '...'
 };
 ```
 
