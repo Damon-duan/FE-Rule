@@ -66,10 +66,10 @@ Frontend前端目录结构如下:
 │  │      ajax.js              ajax封装
 │  │      eventBus.js          事件封装
 │  │      index.js
-│  │      loadJs.js
-│  │      RSA.json
-│  │      storage.js
-│  │      utils.js
+│  │      loadJs.js            第三方库加载
+│  │      RSA.json             加密公钥
+│  │      storage.js           本地存储封装
+│  │      utils.js             工具类
 │  │
 │  ├─components                公用组件存放位置
 │  │  ├─dialog
