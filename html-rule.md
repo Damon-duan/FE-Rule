@@ -8,13 +8,15 @@
 
 [5 Description和Keywords](#5-Description和Keywords)
 
-[6 引入CSS, JS](#7-%E5%BC%95%E5%85%A5css-js)
+[6 引入CSS, JS](#6-引入CSS和JS)
 
-[7 属性顺序](#8-属性顺序)
+[7 属性顺序](#7-属性顺序)
 
-[8 boolean属性](#9-boolean属性)
+[8 boolean属性](#8-boolean属性)
 
-[9 低权重原则]避免滥用子选择器
+[9 低权重原则](#9-避免滥用子选择器)
+
+[10 开发标准推荐](#10-开发标准推荐)
 
 
 
@@ -181,6 +183,98 @@ boolean属性的存在表示取值为true，不存在则表示取值为false。
 
 HTML标签的权重是1，class的权重是10，id的权重是100，例如p的权重是1，“div em”的权重是1+1=2，“strong.demo”的权重是10+1=11，“#test.red”的权重是100+10=110.
 
+
+
+# 10 开发标准推荐
+
+__不要使用空div，空span等空标签来制造空白区域、放背景图、下划线__
+
+__不推荐：__
+
+```html
+    <div>这是需要下边框的布局</div>
+    <div class="line"></div>
+    <style>
+        .line {
+            border-bottom: 1px solid red;
+        }
+    </style>
+```
+__推荐：__
+
+```html
+    <div class="line">这是需要下边框的布局</div>
+    <style>
+        .line {
+            border-bottom: 1px solid red;
+        }
+    </style>
+```
+
+__如非必要，不要嵌套多余的层级__
+
+__不推荐：__
+
+```html
+    <div>
+        <div>
+            <div>
+                <span>最好不要这样, 保证每层都有多个并列子节点</span>
+            </div>
+        </div>
+    </div>
+```
+__推荐：__
+
+```html
+    <div>
+        <span>最好不要这样, 保证每层都有多个并列子节点</span>
+    </div>
+```
+
+__类名应该尽量嵌套，但最多不超过三层__
+
+__不推荐：__
+
+```html
+    <div class="nav-tabs">
+        <span class="tabs"></span>
+        <span class="tabs active"></span>
+        <span class="tabs"></span>
+    </div>
+    <!-- 或 -->
+    <div class="nav-tabs">
+        <span class="span"></span>
+        <span class="span active"></span>
+        <span class="span"></span>
+    </div>
+```
+__推荐：__
+
+```html
+    <div class="nav-tabs">
+        <span class="nav-tabs-item"></span>
+        <span class="nav-tabs-item active"></span>
+        <span class="nav-tabs-item"></span>
+    </div>
+```
+
+__尽量少写内联样式__
+
+__不推荐：__
+```html
+    <div class="content" style="border: 1px solid red;margin-top: 50px;">这是内容区域</div>
+```
+__推荐：__
+
+```html
+    <div class="content">这是内容区域</div>
+    <style>
+        .content {
+            border: 1px solid red;margin-top: 50px;
+        }
+    </style>
+```
 
 
 

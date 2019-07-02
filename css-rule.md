@@ -67,7 +67,7 @@
 - @else 前后
 - 注释'/*'后和'*/'前
 
-```css
+```scss
 /* not good */
 .element {
     color :red! important;
