@@ -182,6 +182,12 @@ __推荐：__
 
 标签的 Props 应该有统一的顺序，依次为指令、属性和事件。
 
+__不推荐：__
+
+```html
+<my-component v-if="if" v-show="show" v-model="value" ref="ref" :key="key" :text="text" @input="onInput" @change="onChange"/>
+```
+
 __推荐：__
 
 ```html
@@ -215,7 +221,6 @@ __不推荐：__
 __推荐：__
 
 ```html
-<!-- bad -->
 <input
   :value="value"
   @input="onInput"
