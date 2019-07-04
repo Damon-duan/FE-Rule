@@ -1030,12 +1030,12 @@ __不推荐：__
 
 ```javascript
 let person = {
-    info:{
+    info: {
         sex:'男'
     }
 }
-function  getMaleSex(){
-    if(person.info.sex === '男'){
+function  getMaleSex () {
+    if (person.info.sex === '男') {
         console.log(person.info.sex)
     }
 } 
@@ -1045,13 +1045,13 @@ __推荐：__
 
 ```javascript
 let person = {
-    info:{
+    info: {
         sex:'男'
     }
 }
-function  getMaleSex(){
+function  getMaleSex () {
     let sex = person.info.sex;
-    if(sex === '男'){
+    if (sex === '男') {
         console.log(sex)
     }
 }
