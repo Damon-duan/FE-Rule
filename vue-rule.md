@@ -22,6 +22,8 @@
 
 [12 单文件组件顶级标签的顺序](#12-单文件组件顶级标签的顺序)
 
+[13 为v-for设置键值](#13-为v-for设置键值)
+
 
 # 1 文件命名规范
 
@@ -305,3 +307,28 @@ __推荐：__
 </style>
 ```
 
+# 13 为v-for设置键值
+
+v-for 中总是有设置 key 值。在组件上总是必须用 key 配合 v-for，以便维护内部组件及其子树的状态
+
+__不推荐：__
+
+```html
+<ul>
+  <li v-for="todo in todos">
+​    {{ todo.text }}
+  </li>
+</ul>
+```
+
+__推荐：__
+
+```html
+<ul>
+  <li
+​    v-for="todo in todos"
+​    :key="todo.id">
+​    {{ todo.text }}
+  </li>
+</ul>
+```
