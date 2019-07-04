@@ -15,6 +15,8 @@
 　　　　[2.2.4 语句](#224-语句)
 
 　　[2.3 命名](#23-命名)
+　　　　[2.3.1 JS采用Camel Case小驼峰式命名](#231-JS采用Camel Case小驼峰式命名)
+　　　　[2.3.2 避免名称冗余](#231-避免名称冗余)
 
 　　[2.4 注释](#24-注释)
 
@@ -47,7 +49,11 @@
 　　　　[3.5 字符串](#35-字符串)
 
 　　　　[3.6 对象](#36-对象)
-
+　　　　　　[3.6.1 创建对象](#361-创建对象)
+　　　　　　[3.6.2 对象字面量](#362-对象字面量)
+　　　　　　[3.6.3 对象设置默认属性的推荐写法](#363-对象设置默认属性的推荐写法)
+　　　　　　[3.6.4 将对象的属性值保存为局部变量](#364-将对象的属性值保存为局部变量)
+　　　　　　[3.6.5 原生对象和宿主对象的原型](#365-原生对象和宿主对象的原型)
 　　　　[3.7 数组](#37-数组)
 
 [4 其他](#4-其他)
@@ -342,7 +348,9 @@ var fnName = function(){
 
 ## 2.3 命名
 
-__【强制】变量 使用 Camel命名法__
+### 2.3.1 JS采用Camel Case小驼峰式命名
+
+__【强制】变量 使用 Camel Case命名法__
 
 __不推荐：__
 
@@ -422,6 +430,29 @@ __推荐：__
 ```javascript
 var httpRequest = new HTTPRequest();
 ```
+
+### 2.3.2 避免名称冗余
+
+__不推荐：__
+
+```javascript
+const Car = {
+  carMake: 'Honda',
+  carModel: 'Accord',
+  carColor: 'Blue'
+}
+```
+
+__推荐：__
+
+```javascript
+const Car = {
+  make: 'Honda',
+  model: 'Accord',
+  color: 'Blue'
+}
+```
+
 
 ## 2.4 注释
 
@@ -883,6 +914,8 @@ __【建议】复杂的数据到视图字符串的转换过程，选用一种模
 
 ## 3.6 对象
 
+### 3.6.1 创建对象
+
 __【强制】使用对象字面量 {} 创建新 Object__
 
 __不推荐：__
@@ -907,27 +940,116 @@ var info = {
 };
 ```
 
-__【建议】对象创建时，如果任何一个 属性 需要添加引号，则所有 属性 建议添加 '__
+### 3.6.2 对象字面量
+
+__创建对象和数组推荐使用字面量，因为这不仅是性能最优也有助于节省代码量__
 
 __不推荐：__
 
 ```javascript
-var info = {
-    name: 'someone',
-    age: 28,
-    'more-info': '...'
-};
+var info = {};
+info.name = 'tom';
+info.age = 15;
+info.sex = '男'
 ```
 
 __推荐：__
 
 ```javascript
 var info = {
-    name: 'someone',
-    age: 28,
-    moreInfo: '...'
+    name: 'tom',
+    age: 15,
+    sex: '男'
 };
 ```
+
+### 3.6.3 对象设置默认属性的推荐写法
+
+__不推荐：__
+
+```javascript
+const menuConfig = {
+  title: null,
+  body: "Bar",
+  buttonText: null,
+  cancellable: true
+};
+
+function createMenu(config) {
+  config.title = config.title || "Foo";
+  config.body = config.body || "Bar";
+  config.buttonText = config.buttonText || "Baz";
+  config.cancellable =
+    config.cancellable !== undefined ? config.cancellable : true;
+}
+
+createMenu(menuConfig);
+```
+
+__推荐：__
+
+```javascript
+const menuConfig = {
+  title: "Order",
+  // User did not include 'body' key
+  buttonText: "Send",
+  cancellable: true
+};
+
+function createMenu(config) {
+  config = Object.assign(
+    {
+      title: "Foo",
+      body: "Bar",
+      buttonText: "Baz",
+      cancellable: true
+    },
+    config
+  );
+
+  // config now equals: {title: "Order", body: "Bar", buttonText: "Send", cancellable: true}
+  // ...
+}
+
+createMenu(menuConfig);
+```
+
+### 3.6.4 将对象的属性值保存为局部变量
+
+__对象成员嵌套越深，读取速度也就越慢。所以好的经验法则是：如果在函数中需要多次读取一个对象属性，最佳做法是将该属性值保存在局部变量中，避免多次查找带来的性能开销__
+
+__不推荐：__
+
+```javascript
+let person = {
+    info:{
+        sex:'男'
+    }
+}
+function  getMaleSex(){
+    if(person.info.sex === '男'){
+        console.log(person.info.sex)
+    }
+} 
+```
+
+__推荐：__
+
+```javascript
+let person = {
+    info:{
+        sex:'男'
+    }
+}
+function  getMaleSex(){
+    let sex = person.info.sex;
+    if(sex === '男'){
+        console.log(sex)
+    }
+}
+```
+
+### 3.6.5 原生对象和宿主对象的原型
 
 __【强制】不允许修改和扩展任何原生对象和宿主对象的原型__
 
