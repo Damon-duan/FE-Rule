@@ -8,6 +8,7 @@ v1.0  |初版    |2019-06-20 |许振武 高荣君 段舒文
 * [Javascript编码规范](./javascript-rule.md)
 * [CSS 编码规范](./css-rule.md)
 * [Vue项目开发规范](./vue-rule.md)
+* [Js 开发技巧](./js-skill.md)
 
 
 Frontend前端目录结构如下:
