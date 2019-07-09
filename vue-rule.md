@@ -75,7 +75,6 @@ myComponent.vue
 __推荐：__
 
 ```
-my-component.vue
 MyComponent.vue
 ```
 

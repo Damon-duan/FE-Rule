@@ -69,7 +69,7 @@
 
 # 1 前言
 
-javascript在大旗被广泛的应用，本文档的目标是使javascript代码风格保持一致，容易被理解和被维护。
+javascript广泛的应用，本文档的目标是使javascript代码风格保持一致，容易被理解和维护。
 
 # 2 代码风格
 
@@ -100,7 +100,7 @@ user-login.min.js
 
 ### 2.2.1 缩进
 
-__【强制】使用 4个空格做为一个缩进层级，不允许使用2个空格。__
+__【强制】使用 2个空格做为一个缩进层级，不允许使用4个空格。__
 
 __【强制】swith下的case和default必须增加一个缩进层级。__
 
@@ -124,15 +124,15 @@ __推荐：__
 
 ```javascript
 switch (value) {
-    case 0:
-        //doing
-        break;
-    case 1:
-        //doing
-        break;
-    default:
-        //doing
-        break;
+  case 0:
+    //doing
+    break;
+  case 1:
+    //doing
+    break;
+  default:
+    //doing
+    break;
 }
 ```
 
@@ -143,7 +143,7 @@ __【强制】二元运算符两侧必须有一个空格，一元运算符与操
 __不推荐：__
 
 ```javascript
-var a =!arr.length;
+let a =!arr.length;
 a ++;
 a =b+c;
 ```
@@ -151,7 +151,7 @@ a =b+c;
 __推荐：__
 
 ```javascript
-var a = !arr.length;
+let a = !arr.length;
 a++;
 a = b + c;
 ```
@@ -194,7 +194,7 @@ __【强制】在对象创建时，属性中的 : 之后必须有空格，: 之�
 __不推荐：__
 
 ```javascript
-var obj = {
+let obj = {
     a : 1,
     b:2,
     c :3
@@ -204,7 +204,7 @@ var obj = {
 __推荐：__
 
 ```javascript
-var obj = {
+let obj = {
     a: 1,
     b: 2,
     c: 3
@@ -218,7 +218,7 @@ __不推荐：__
 ```javascript
 function fnName () {}
 
-var fnName = function fnName () {};
+let fnName = function fnName () {};
 
 fnName ();
 ```
@@ -228,7 +228,7 @@ __推荐：__
 ```javascript
 function fnName() {}
 
-var fnName = function fnName() {};
+let fnName = function fnName() {};
 
 fnName();
 ```
@@ -273,7 +273,7 @@ __【强制】在函数声明、函数表达式、函数调用、对象创建、
 __不推荐：__
 
 ```javascript
-var obj = {
+let obj = {
     a: 1
     , b: 2
     , c: 6
@@ -290,7 +290,7 @@ fnName(
 __推荐：__
 
 ```javascript
-var obj = {
+let obj = {
     a: 1,
     b: 2,
     c: 6
@@ -337,7 +337,7 @@ function fnName() {
 
 };
 //函数表达式
-var fnName = function(){
+let fnName = function(){
 
 }
 ```
@@ -349,7 +349,7 @@ function fnName() {
 
 }
 //函数表达式
-var fnName = function(){
+let fnName = function(){
 
 };
 ```
@@ -363,20 +363,20 @@ __【强制】变量 使用 Camel Case命名法__
 __不推荐：__
 
 ```javascript
-var user_name = ''
+let user_name = ''
 ```
 
 __推荐：__
 
 ```javascript
-var userName = ''
+let userName = ''
 ```
 __【强制】常量 使用 全部字母大写，单词间下划线分隔 的命名方式__
 
 __不推荐：__
 
 ```javascript
-var config = {
+let config = {
     'server': 'http://192.168.7.115'
 }
 ```
@@ -384,7 +384,7 @@ var config = {
 __推荐：__
 
 ```javascript
-var CONFIG = {
+const CONFIG = {
     server: 'http://192.168.7.115'
 }
 ```
@@ -430,13 +430,13 @@ __【强制】由多个单词组成的缩写词，在命名中，根据当前命
 __不推荐：__
 
 ```javascript
-var http = new HTTPRequest();
+let http = new HTTPRequest();
 ```
 
 __推荐：__
 
 ```javascript
-var httpRequest = new HTTPRequest();
+let httpRequest = new HTTPRequest();
 ```
 
 ### 2.3.2 避免名称冗余
@@ -471,7 +471,7 @@ __【强制】必须独占一行__
 __示例：__
 
 ```javascript
-//登录
+// 登录
 function userLogin(userName) {
 
 }
@@ -566,7 +566,7 @@ __示例：__
  * @type {object}
  */
 
-var CONFIG = {}
+const CONFIG = {}
 ```
 
 ### 2.4.6 细节注释
@@ -579,10 +579,10 @@ __示例：__
 
 ```javascript
 function userLogin(username, password, code) {
-    //这里对具体内部逻辑进行说明
-    //说明矿长需要换行
-    for(...){
-        //doing
+    // 这里对具体内部逻辑进行说明
+    // 说明矿长需要换行
+    for (...) {
+        // doing
     }
 }
 ```
@@ -593,35 +593,37 @@ function userLogin(username, password, code) {
 
 __【强制】变量、函数在使用前必须先定义__
 
-说明：不通过 var 定义变量将导致变量污染全局环境
+说明：不通过 let 定义变量将导致变量污染全局环境
 
 __不推荐：__
-```javascript
-var userName = 'hjp'
-```
-__推荐：__
-
 ```javascript
 userName = 'hjp'
 ```
-
-__【强制】每个 var 只能声明一个变量__
-
-说明：一个 var 声明多个变量，容易导致较长的行长度，并且在修改时容易造成逗号和分号的混淆
-
-
-__不推荐：__
-```javascript
-var userName = 'hjp';
-var pasword = '12345';
-var email = '378540660@qq.com';
-```
 __推荐：__
 
 ```javascript
-var userName = 'hjp',
+let userName = 'hjp'
+```
+
+__【强制】每个 let 只能声明一个变量__
+
+说明：一个 let 声明多个变量，容易导致较长的行长度，并且在修改时容易造成逗号和分号的混淆
+
+
+__不推荐：__
+
+```javascript
+let userName = 'hjp',
     pasword = '12345',
     email = '378540660@qq.com';
+```
+
+__推荐：__
+
+```javascript
+let userName = 'hjp';
+let pasword = '12345';
+let email = '378540660@qq.com';
 ```
 
 __【强制】变量必须 即用即声明，不得在函数或其它形式的代码块起始位置统一声明所有变量__
@@ -700,7 +702,7 @@ __【建议】对于相同变量或表达式的多值条件，用 switch 代替 
 
 __不推荐：__
 ```javascript
-var type = typeof types;
+let type = typeof types;
 if (type === 'object') {
     //doing
 }
@@ -712,14 +714,14 @@ __推荐：__
 
 ```javascript
 switch (typeof types) {
-    case 'object':
-        //doing
-        break;
-    case 'number':
-    case 'string':
-    case 'boolean':
-        //doing
-        break;
+  case 'object':
+    //doing
+    break;
+  case 'number':
+  case 'string':
+  case 'boolean':
+    //doing
+    break;
 }
 ```
 
@@ -731,11 +733,11 @@ __【建议】不要在循环体中包含函数表达式，事先将函数提取
 
 __不推荐：__
 ```javascript
-for (var i = 0, len = elements.length; i < len; i++) {
-    var element = elements[i];
+for (let i = 0, len = elements.length; i < len; i++) {
+    let element = elements[i];
 
     element.on('click', function() {
-        //doing
+        // doing
     });
 }
 ```
@@ -743,11 +745,11 @@ __推荐：__
 
 ```javascript
 function clicker() {
-    //doings
+    // doings
 }
 
-for (var i = 0, len = elements.length; i < len; i++) {
-    var element = elements[i];
+for (let i = 0, len = elements.length; i < len; i++) {
+    let element = elements[i];
 
     element.on('click', clicker);
 }
@@ -757,8 +759,8 @@ __【建议】对循环内多次使用的不变值，在循环外用变量缓存
 
 __不推荐：__
 ```javascript
-for (var i = 0, len = elements.length; i < len; i++) {
-    var element = elements[i];
+for (let i = 0, len = elements.length; i < len; i++) {
+    let element = elements[i];
 
     element.width($('.ele').width());
 }
@@ -766,10 +768,10 @@ for (var i = 0, len = elements.length; i < len; i++) {
 __推荐：__
 
 ```javascript
-var width = $('.ele').width();
+let width = $('.ele').width();
 
-for (var i = 0, len = elements.length; i < len; i++) {
-    var element =elements[i];
+for (let i = 0, len = elements.length; i < len; i++) {
+    let element =elements[i];
 
     element.width(width);
 }
@@ -781,15 +783,15 @@ __【建议】对有序集合进行遍历时，缓存 length__
 
 __不推荐：__
 ```javascript
-for (var i = 0; i < elements.length; i++) {
-    //doing
+for (let i = 0; i < elements.length; i++) {
+    // doing
 }
 ```
 __推荐：__
 
 ```javascript
-for (var i = 0, len = elements.length; i < len; i++) {
-    //doing
+for (let i = 0, len = elements.length; i < len; i++) {
+    // doing
 }
 ```
 
@@ -897,7 +899,7 @@ __【建议】string 转换成 number，要转换的字符串结尾包含非数�
 __示例：__
 
 ```javascript
-var width = '200px';
+let width = '200px';
 parseInt(width, 10);
 ```
 
@@ -907,7 +909,7 @@ __【建议】转换成 boolean 时，使用 !!__
 __示例：__
 
 ```javascript
-var num = 3.14;
+let num = 3.14;
 !!num;
 ```
 
@@ -921,12 +923,17 @@ __【强制】字符串开头和结束使用单引号 '__
 
 2、实际使用中，字符串经常用来拼接 HTML。为方便 HTML 中包含双引号而不需要转义写法。
 
+3、实际使用中，拼接中含有变量，方便操作可以使用es6模板字符串。
+
 
 __示例：__
 
 ```javascript
-var str = '我是字符串';
-var html = '<div class="text">拼接HTML可以省去双引号转义</div>';
+let str = '我是字符串';
+let html = '<div class="text">拼接HTML可以省去双引号转义</div>';
+
+let total = 200;
+let totalHtml = `<div class="total">结算金额：${total}</div>`
 ```
 
 __【建议】使用 数组 或 + 拼接字符串__
@@ -950,20 +957,20 @@ __【强制】使用对象字面量 {} 创建新 Object__
 __不推荐：__
 
 ```javascript
-var obj = new Object();
+let obj = new Object();
 ```
 
 __推荐：__
 
 ```javascript
-var obj = {};
+let obj = {};
 ```
 __【建议】对象创建时，如果一个对象的所有 属性 均可以不添加引号，建议所有 属性 不添加引号__
 
 __推荐：__
 
 ```javascript
-var info = {
+let info = {
     name: 'someone',
     age: 28
 };
@@ -976,7 +983,7 @@ __创建对象和数组推荐使用字面量，因为这不仅是性能最优也
 __不推荐：__
 
 ```javascript
-var info = {};
+let info = {};
 info.name = 'tom';
 info.age = 15;
 info.sex = '男'
@@ -985,7 +992,7 @@ info.sex = '男'
 __推荐：__
 
 ```javascript
-var info = {
+let info = {
     name: 'tom',
     age: 15,
     sex: '男'
@@ -1008,8 +1015,7 @@ function createMenu(config) {
   config.title = config.title || "Foo";
   config.body = config.body || "Bar";
   config.buttonText = config.buttonText || "Baz";
-  config.cancellable =
-    config.cancellable !== undefined ? config.cancellable : true;
+  config.cancellable = config.cancellable !== undefined ? config.cancellable : true;
 }
 
 createMenu(menuConfig);
@@ -1101,13 +1107,13 @@ __【强制】使用数组字面量 [] 创建新数组，除非想要创建的�
 __不推荐：__
 
 ```javascript
-var arr = new Array();
+let arr = new Array();
 ```
 
 __推荐：__
 
 ```javascript
-var arr = [];
+let arr = [];
 ```
 
 __【强制】遍历数组不使用 for in__

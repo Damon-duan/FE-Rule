@@ -23,16 +23,16 @@
 
 # 1 缩进
 
-使用soft tab（4个空格）。
+使用soft tab（2个空格）。
 
 ```css
 .element {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
 }
 ```
 
@@ -42,9 +42,9 @@
 
 ```css
 .element {
-    width: 20px;
-    height: 20px;
-    background-color: red;
+  width: 20px;
+  height: 20px;
+  background-color: red;
 }
 
 ```
@@ -188,7 +188,7 @@
 }
 
 /* 变量 */
-$color-black: #000;>
+$color-black: #000;
 
 /* 插件盒子 */
 .daq-dialog {
@@ -258,6 +258,12 @@ $color-black: #000;>
 .element {
     color: #abcdef;
     background-color: #012;
+}
+
+/* 或 */
+.element {
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(255, 0, 0, 1);
 }
 ```
 
