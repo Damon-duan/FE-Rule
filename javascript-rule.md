@@ -801,7 +801,7 @@ for (let i = 0, len = elements.length; i < len; i++) {
 
 __【建议】类型检测优先使用 typeof。对象类型检测使用 instanceof。null 或 undefined 的检测使用 == null__
 
-__未例：__
+__示例：__
 
 ```javascript
 // string
