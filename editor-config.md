@@ -49,6 +49,10 @@
   <img src="./images/code-style-html.png" alt="code-style-html" />
 </p>
 
+<p>
+  <a href="./Default.xml" target="_blank">配置文件下载</a>
+</p>
+
 
 # 4 SCSS代码格式配置
 
@@ -59,6 +63,10 @@
 <p>
   <img src="./images/open-file.png" alt="open-file" />
   <img src="./images/code-style-scss.png" alt="code-style-scss" />
+</p>
+
+<p>
+  <a href="./Default.xml" target="_blank">配置文件下载</a>
 </p>
 
 
