@@ -50,7 +50,7 @@
 </p>
 
 <p>
-  <a href="./Default.zip" download="Default" target="_blank">配置文件下载</a>
+  <a href="./Default.xml" target="_blank">配置文件下载</a>
 </p>
 
 
@@ -66,7 +66,7 @@
 </p>
 
 <p>
-  <a href="./Default.zip" download="Default" target="_blank">配置文件下载</a>
+  <a href="./Default.xml" target="_blank">配置文件下载</a>
 </p>
 
 
