@@ -722,6 +722,8 @@ switch (typeof types) {
   case 'boolean':
     //doing
     break;
+  default:
+    break;
 }
 ```
 
