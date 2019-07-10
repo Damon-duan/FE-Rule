@@ -81,3 +81,8 @@
   <img src="./images/open-file.png" alt="open-file" />
   <img src="./images/vue-component-template.png" alt="vue-component-template" />
 </p>
+
+<p>
+  <a href="./Vue component.vue" target="_blank">配置文件下载</a>
+</p>
+
