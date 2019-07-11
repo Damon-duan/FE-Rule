@@ -14,6 +14,33 @@
 
 # 1 String技巧
 
+> 把值转换成String的5个方法
+
+你最了解你的程序，因此你应该选择最适合你的方式。
+
+```js
+const value = 12345;
+
+// Concat Empty String
+value + '';
+
+// Template Strings
+`${value}`;
+
+// JSON.stringify
+JSON.stringify(value);
+
+// toString()
+value.toString();
+
+// String()
+String(value);
+
+// RESULT
+// '12345'
+
+```
+
 > 字符串插值
 
 在用例中，如果正在构建一个基于模板的helper组件，那么这一点就会非常突出，它使动态模板连接容易得多。
