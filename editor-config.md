@@ -82,7 +82,29 @@
   <img src="./images/vue-component-template.png" alt="vue-component-template" />
 </p>
 
-<p>
-  <a href="./Vue component.vue" target="_blank">配置文件下载</a>
-</p>
+```html
+<template>
+  <div class="wrapper">
+
+  </div>
+</template>
+
+<script>
+export default {
+  name: '${COMPONENT_NAME}',
+  
+  data () {
+    return {}
+  },
+  
+  mounted () {},
+  
+  methods: {}
+}
+</script>
+
+<style scoped lang="scss">
+
+</style>
+```
 
