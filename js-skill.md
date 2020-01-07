@@ -908,3 +908,24 @@ const love = JSON.parse(localStorage.getItem('love'));
 localStorage.setItem('love', JSON.stringify('I Love You'));
 
 ```
+
+> 银行卡号分割
+```js
+bank_filter = val =>{
+  val += '';
+  val = val.replace(/(\s)/g,'').replace(/(\d{4})/g,'$1 ').replace(/\s*$/,'');
+  return val;
+}
+```
+
+> 数字超过99显示99+
+```js
+ninenum_filter = val =>{
+  val = val?val-0:0;
+  if (val > 99 ) {
+    return "99+"
+  }else{
+    return val;
+  }
+}
+```
