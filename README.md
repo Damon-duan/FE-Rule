@@ -2,7 +2,7 @@
 
 版本  |  说明  |  时间  |  参与编辑人员
 ------|--------|--------|--------
-v1.0  |初版    |2019-06-20 |许振武 高荣君 段舒文
+v1.0  |初版    |2020-7-7 |许振武 高荣君 段舒文
 
 * [浏览器是如何工作的](https://juejin.im/post/5e47cb68f265da57584d9a54?utm_source=gold_browser_extension)
 * [HTML 编码规范](./html-rule.md)
@@ -48,42 +48,42 @@ Frontend前端目录结构如下:
 │  │
 │  ├─assets                    静态资源
 │  │  ├─font                   字体图标存放位置
-│  │  │      iconfont.css
-│  │  │      iconfont.eot
-│  │  │      iconfont.svg
-│  │  │      iconfont.ttf
-│  │  │      iconfont.woff
+│  │  │      iconfont.css      字体图标样式
+│  │  │      iconfont.eot      字体图标文件
+│  │  │      iconfont.svg      字体图标文件
+│  │  │      iconfont.ttf      字体图标文件
+│  │  │      iconfont.woff     字体图标文件
 │  │  │
 │  │  ├─images                 系统图标或图片存放位置
-│  │  │      loading.gif
-│  │  │      no-data.png
+│  │  │      loading.gif       loading图片
+│  │  │      no-data.png       空数据暂未图
 │  │  │
 │  │  └─scss                   sass样式文件存放位置
-│  │          extends.scss
-│  │          global.scss
-│  │          mixins.scss
-│  │          normalize.scss
-│  │          variable.scss
+│  │          extends.scss     继承类
+│  │          global.scss      全局样式
+│  │          mixins.scss      宏
+│  │          normalize.scss   初始化样式文件
+│  │          variable.scss    全局变量文件
 │  │
 │  ├─common
-│  │      ajax.js              ajax封装
-│  │      eventBus.js          事件封装
+│  │      ajax.js              axios类封装
+│  │      eventBus.js          事件通信封装
 │  │      index.js
 │  │      loadJs.js            第三方库加载
 │  │      RSA.json             加密公钥
-│  │      storage.js           本地存储封装
+│  │      storage.js           本地存储|回话临时存储封装
 │  │      utils.js             工具类
 │  │
 │  ├─components                公用组件存放位置
-│  │  ├─dialog
+│  │  ├─dialog                 弹窗组件
 │  │  │      index.js
 │  │  │      index.vue
 │  │  │
-│  │  ├─loading
+│  │  ├─loading                loading加载组件
 │  │  │      index.js
 │  │  │      index.vue
 │  │  │
-│  │  └─toast
+│  │  └─toast                  轻提示组件
 │  │          index.js
 │  │          index.vue
 │  │
@@ -91,9 +91,8 @@ Frontend前端目录结构如下:
 │  │      index.js
 │  │
 │  └─views                      项目页面编写
-│          dynamic.vue
-│          index.vue
-│          user-center.vue
+│         index.vue
+│  
 │
 └─static                        静态资源存放位置
 ```

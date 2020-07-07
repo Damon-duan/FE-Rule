@@ -22,16 +22,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 # 1 语法
 
 
@@ -86,7 +76,7 @@
 
 # 4 页面说明注释
 
-在head区域中加上对页面相关人员注释：CP，不能为其他内容。方便在产品环境中的查看。
+在head区域中加上对页面相关人员注释：CP，不能为其他内容。方便在产品环境中的查看（多人协作开发使用）。
 
 
 ```html
@@ -106,7 +96,7 @@
 
 # 5 Description和Keywords
 
-注：Description值一般为页面标题或主题，针对该页面主题的说明。Keywords为产品名、专题名、专题相关名词，之间用英文半角逗号隔开。
+注：Description值一般为页面标题或主题，针对该页面主题的说明。Keywords为产品名、专题名、专题相关名词，之间用英文半角逗号隔开（PC端使用，可增加SEO排名权重）。
 
 
 ```html
@@ -122,7 +112,7 @@ HTML5 规范链接
 
 - 使用link
 - 使用style
-
+- 使用script
 
 
 ```html
@@ -133,6 +123,10 @@ HTML5 规范链接
 <style>
     ...
 </style>
+
+<script>
+    ...
+</script>
 ```
 
 # 7 属性顺序
@@ -187,13 +181,14 @@ HTML标签的权重是1，class的权重是10，id的权重是100，例如p的�
 
 # 10 标签语义化
 
-HTML5结构标签
+HTML5结构标签（友情链接：https://www.w3school.com.cn/tags/index.asp）
 
+- aside 标记定义页面内容部分的侧边栏；
+- address 标记定义一个页面联系信息；
+- article 标记定义一篇文章；
 - header 标记定义一个页面或一个区域的头部；
 - nav 标记定义导航链接；
 - section 标记定义一个区域；
-- aside 标记定义页面内容部分的侧边栏；
-- article 标记定义一篇文章；
 - hgroup 标记定义文件中一个区块的相关信息；
 - figure 标记定义一组媒体内容以及它们的标题；
 - figcaption 标记定义 figure 元素的标题；
@@ -287,7 +282,8 @@ __推荐：__
     <div class="content">这是内容区域</div>
     <style>
         .content {
-            border: 1px solid red;margin-top: 50px;
+            border: 1px solid red;
+            margin-top: 50px;
         }
     </style>
 ```

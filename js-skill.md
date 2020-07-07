@@ -129,20 +129,20 @@ const num = fillZero(169, 5);
 // num => "00169"
 ```
 
-> 转数值：只对null、""、false、数值字符串有效
+> 转数值：只对null、''、false、数值字符串有效
 
 ```js
 const num1 = +null;
-const num2 = +"";
+const num2 = +'';
 const num3 = +false;
-const num4 = +"169";
+const num4 = +'169';
 // num1 num2 num3 num4 => 0 0 0 169
 ```
 
 > 时间戳
 
 ```js
-const timestamp = +new Date("2019-02-14");
+const timestamp = +new Date('2019-02-14');
 // timestamp => 1550102400000
 ```
 
@@ -157,9 +157,9 @@ const num = roundNum(1.69, 1);
 > 判断奇偶
 
 ```js
-const oddEven = num => !!(num & 1) ? "odd" : "even";
+const oddEven = num => !!(num & 1) ? 'odd' : 'even';
 const num = oddEven(2);
-// num => "even"
+// num => 'even'
 
 // 或
 const isOdd = num => {num % 2}
@@ -199,14 +199,14 @@ const c = !d; // 取假赋值：单个表达式转换为true则返回false，否
 
 ```js
 function dataType(tgt, type) {
-  const dataType = Object.prototype.toString.call(tgt).replace(/\[object /g, "").replace(/\]/g, "").toLowerCase();
+  const dataType = Object.prototype.toString.call(tgt).replace(/\[object /g, '').replace(/\]/g, '').toLowerCase();
   return type ? dataType === type : dataType;
 }
-dataType("young"); // "string"
+dataType('young'); // "string"
 dataType(20190214); // "number"
 dataType(true); // "boolean"
-dataType([], "array"); // true
-dataType({}, "array"); // false
+dataType([], 'array'); // true
+dataType({}, 'array'); // false
 ```
 
 > 是否为空数组
@@ -226,7 +226,7 @@ function dataType(tgt, type) {
 }
 
 const obj = {};
-const flag = dataType(obj, "object") && !Object.keys(obj).length;
+const flag = dataType(obj, 'object') && !Object.keys(obj).length;
 // flag => true
 ```
 
@@ -253,7 +253,7 @@ function Func () {
   // doing...
 }
 
-const flag = false; // undefined、null、""、0、false、NaN
+const flag = false; // undefined、null、''、0、false、NaN
 !flag && Func();
 
 ```
@@ -330,10 +330,10 @@ ES6 提供了从数组中提取惟一值的两种非常简洁的方法。不幸�
 ```js
 const cars = ['Mazda', 'Ford', 'Renault', 'Opel', 'Mazda'];
 const uniqueWithArrayFrom = Array.from(new Set(cars));
-console.log(uniqueWithArrayFrom); // outputs ["Mazda", "Ford", "Renault", "Opel"]
+console.log(uniqueWithArrayFrom); // outputs ['Mazda', 'Ford', 'Renault', 'Opel']
 
 const uniqueWithSpreadOperator = [...new Set(cars)];
-console.log(uniqueWithSpreadOperator); // outputs ["Mazda", "Ford", "Renault", "Opel"]
+console.log(uniqueWithSpreadOperator); // outputs ['Mazda', 'Ford', 'Renault', 'Opel']
 ```
 > 使用展开运算符合并对象和对象数组
 
@@ -463,12 +463,19 @@ let b = 1;
 [a, b] = [b, a];
 // a b => 1 0
 
+// 或 只能是整数才能使用该方法
+let a = 0;
+let b = 1;
+a ^= b;
+b ^= a;
+a ^= b;
+
 ```
 
-> 过滤空值：undefined、null、""、0、false、NaN
+> 过滤空值：undefined、null、''、0、false、NaN
 
 ```js
-const arr = [undefined, null, "", 0, false, NaN, 1, 2].filter(Boolean);
+const arr = [undefined, null, '', 0, false, NaN, 1, 2].filter(Boolean);
 // arr => [1, 2]
 
 ```
@@ -478,7 +485,9 @@ const arr = [undefined, null, "", 0, false, NaN, 1, 2].filter(Boolean);
 ```js
 let arr = [1, 2]; // 以下方法任选一种
 arr.unshift(0);
+// 或
 arr = [0].concat(arr);
+// 或
 arr = [0, ...arr];
 // arr => [0, 1, 2]
 
@@ -489,8 +498,11 @@ arr = [0, ...arr];
 ```js
 let arr = [0, 1]; // 以下方法任选一种
 arr.push(2);
+// 或
 arr.concat(2);
+// 或
 arr[arr.length] = 2;
+// 或
 arr = [...arr, 2];
 // arr => [0, 1, 2]
 
@@ -634,7 +646,7 @@ const flag = false;
 const obj = {
     a: 0,
     b: 1,
-    [flag ? "c" : "d"]: 2
+    [flag ? 'c' : 'd']: 2
 };
 // obj => { a: 0, b: 1, d: 2 }
 
@@ -685,15 +697,15 @@ let getUser = (emailIncluded) => {
   return {
     name: 'John',
     surname: 'Doe',
-    ...emailIncluded && { email : 'john@doe.com' }
+    ...emailIncluded && {email : 'john@doe.com'}
   }
 }
 
 const user = getUser(true);
-console.log(user); // outputs { name: "John", surname: "Doe", email: "john@doe.com" }
+console.log(user); // outputs {name: 'John', surname: 'Doe', email: 'john@doe.com'}
 
 const userWithoutEmail = getUser(false);
-console.log(userWithoutEmail); // outputs { name: "John", surname: "Doe" }
+console.log(userWithoutEmail); // outputs {name: 'John', surname: 'Doe'}
 
 ```
 
@@ -770,10 +782,10 @@ delete function() {}();
 
 ```js
 const Func = function(name) {
-    return "I Love " + name;
+    return 'I Love ' + name;
 };
 // 换成
-const Func = name => "I Love " + name;
+const Func = name => 'I Love ' + name;
 
 ```
 
@@ -781,9 +793,9 @@ const Func = name => "I Love " + name;
 
 ```js
 function Func() {
-    console.log("x");
+    console.log('x');
     Func = function() {
-        console.log("y");
+        console.log('y');
     }
 }
 
@@ -795,20 +807,21 @@ Func();
 ```js
 function Func() {
     if (a === b) {
-        console.log("x");
+        console.log('x');
     } else {
-        console.log("y");
+        console.log('y');
     }
 }
+
 // 换成
 function Func() {
     if (a === b) {
         Func = function() {
-            console.log("x");
+            console.log('x');
         }
     } else {
         Func = function() {
-            console.log("y");
+            console.log('y');
         }
     }
     return Func();
@@ -822,10 +835,10 @@ function IsRequired() {
     throw new Error('param is required');
 }
 function Func(name = IsRequired()) {
-    console.log("I Love " + name);
+    console.log('I Love ' + name);
 }
 Func(); // "param is required"
-Func("You"); // "I Love You"
+Func('You'); // "I Love You"
 ```
 
 > 字符串创建函数
@@ -920,10 +933,10 @@ bank_filter = val =>{
 
 > 数字超过99显示99+
 ```js
-ninenum_filter = val =>{
+nineNumFilter = val =>{
   val = val?val-0:0;
   if (val > 99 ) {
-    return "99+"
+    return '99+'
   }else{
     return val;
   }

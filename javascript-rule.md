@@ -81,20 +81,18 @@ javascript广泛的应用，本文档的目标是使javascript代码风格保持
 
 __不推荐：__
 ```
-userLogin.js
-userLogin.scss
-userLogin.html
+Login.js
+Login.scss
+Login.html
 100-login.js
-user-login-min.scss
 ```
 __推荐：__
 
 ```
-user-login.js
-user-login.scss
-user-login.html
-user-login.min.css
-user-login.min.js
+login.js
+login.scss
+login.html
+login.min.js
 ```
 ## 2.2 结构
 
@@ -296,12 +294,16 @@ let obj = {
     c: 6
 }
 
+fnName(username, password, email, code);
+
+// 或
+
 fnName(
     username,
     password,
     email,
     code
-)
+);
 ```
 
 ### 2.2.4 语句
@@ -325,6 +327,9 @@ __推荐：__
 if (a) {
     fnName();
 }
+
+// 或
+a && fnName();
 ```
 
 __【强制】函数定义结束不允许添加分号,如果是函数表达式，分号是不允许省略的__
@@ -334,11 +339,11 @@ __不推荐：__
 
 ```javascript
 function fnName() {
-
+  // ...
 };
 //函数表达式
 let fnName = function(){
-
+  // ...
 }
 ```
 
@@ -346,11 +351,11 @@ __推荐：__
 
 ```javascript
 function fnName() {
-
+  // ...
 }
 //函数表达式
 let fnName = function(){
-
+  // ...
 };
 ```
 
@@ -377,8 +382,10 @@ __不推荐：__
 
 ```javascript
 let config = {
-    'server': 'http://192.168.7.115'
-}
+  'server': 'http://192.168.7.115'
+};
+
+let api_path = 'http://192.168.7.115';
 ```
 
 __推荐：__
@@ -386,10 +393,12 @@ __推荐：__
 ```javascript
 const CONFIG = {
     server: 'http://192.168.7.115'
-}
+};
+
+const API_PATH = 'http://192.168.7.115';
 ```
 
-__【强制】函数 使用 Camel命名法__
+__【强制】函数 使用 Camel Case 命名法__
 
 __不推荐：__
 
@@ -407,7 +416,7 @@ function userLogin() {
 }
 ```
 
-__【强制】函数的 参数 使用 Camel命名法__
+__【强制】函数的 参数 使用 Camel Case 命名法__
 
 __不推荐：__
 
@@ -485,10 +494,10 @@ __示例：__
 
 ```javascript
 /*
- * 注释的内容
+ * @ 注释的内容
  */
 function userLogin(userName) {
-
+  // ...
 }
 ```
 
@@ -549,7 +558,7 @@ __示例：__
  * @param  {[string]} config.password [cconfig项描述，参数2的说明]
  * @param  {[string]} config.code     [cconfig项描述，参数3的说明]
  */
-function userLogin(ele,config) {
+function userLogin(ele, config) {
 
 }
 ```
@@ -580,7 +589,7 @@ __示例：__
 ```javascript
 function userLogin(username, password, code) {
     // 这里对具体内部逻辑进行说明
-    // 说明矿长需要换行
+    // 说明太长需要换行可以使用/* */
     for (...) {
         // doing
     }
@@ -597,12 +606,12 @@ __【强制】变量、函数在使用前必须先定义__
 
 __不推荐：__
 ```javascript
-userName = 'hjp'
+userName = 'hjp';
 ```
 __推荐：__
 
 ```javascript
-let userName = 'hjp'
+let userName = 'hjp';
 ```
 
 __【强制】每个 let 只能声明一个变量__
@@ -638,14 +647,14 @@ __【强制】在 Equality Expression 中使用类型严格的 ===__
 __不推荐：__
 ```javascript
 if (a == 1){
-    //doing
+    // doing
 }
 ```
 __推荐：__
 
 ```javascript
 if (a === 1) {
-    //doing
+    // doing
 }
 ```
 
@@ -654,47 +663,55 @@ __【建议】尽可能使用简洁的表达式__
 
 __不推荐：__
 ```javascript
-//字符串为空
+let name = '';
+let arr = [];
+let notTrue = false;
+
+// 字符串为空
 if (name === '') {
-    //doing
+    // doing
 }
 
-//字符串非空
+// 字符串非空
 if (name !== '') {
-
+  // doing
 }
 
-//数组非空
+// 数组非空
 if (arr.length > 0) {
-
+  // doing
 }
 
-//布尔不成立
+// 布尔不成立
 if (notTrue === false) {
-
+  // doing
 }
 ```
 __推荐：__
 
 ```javascript
-//字符串为空
+let name = '';
+let arr = [];
+let notTrue = false;
+
+// 字符串为空
 if (!name) {
-    //doing
+    // doing
 }
 
-//字符串非空
+// 字符串非空
 if (name) {
-
+  // doing
 }
 
-//数组非空
+// 数组非空
 if (arr.length) {
-
+  // doing
 }
 
-//布尔不成立
+// 布尔不成立
 if (!notTrue) {
-
+  // doing
 }
 ```
 __【建议】对于相同变量或表达式的多值条件，用 switch 代替 if__
@@ -704,10 +721,9 @@ __不推荐：__
 ```javascript
 let type = typeof types;
 if (type === 'object') {
-    //doing
-}
-else if (type === 'number' || type === 'boolean' || type === 'string') {
-    //doing
+    // doing
+} else if (type === 'number' || type === 'boolean' || type === 'string') {
+    // doing
 }
 ```
 __推荐：__
@@ -715,14 +731,15 @@ __推荐：__
 ```javascript
 switch (typeof types) {
   case 'object':
-    //doing
+    // doing
     break;
   case 'number':
   case 'string':
   case 'boolean':
-    //doing
+    // doing
     break;
   default:
+    // doing
     break;
 }
 ```
@@ -738,26 +755,26 @@ __不推荐：__
 for (let i = 0, len = elements.length; i < len; i++) {
     let element = elements[i];
 
-    element.on('click', function() {
-        // doing
-    });
+    element.onclick = function() {
+      // doing
+    };
 }
 ```
 __推荐：__
 
 ```javascript
 function clicker() {
-    // doings
+    // doing
 }
 
 for (let i = 0, len = elements.length; i < len; i++) {
     let element = elements[i];
 
-    element.on('click', clicker);
+    element.onclick = clicker;
 }
 ```
 
-__【建议】对循环内多次使用的不变值，在循环外用变量缓存__
+__【建议】对循环内多次使用的不变值，在循环外用变量缓存，以jquery为例__
 
 __不推荐：__
 ```javascript
@@ -770,12 +787,12 @@ for (let i = 0, len = elements.length; i < len; i++) {
 __推荐：__
 
 ```javascript
-let width = $('.ele').width();
+const WIDTH = $('.ele').width();
 
 for (let i = 0, len = elements.length; i < len; i++) {
     let element =elements[i];
 
-    element.width(width);
+    element.width(WIDTH);
 }
 ```
 
@@ -806,6 +823,7 @@ __【建议】类型检测优先使用 typeof。对象类型检测使用 instanc
 __示例：__
 
 ```javascript
+let types = '123'
 // string
 typeof types === 'string'
 
@@ -827,32 +845,29 @@ types instanceof RegExp
 // Array
 types instanceof Array
 
-// null
-types === null
-
 // null or undefined
-types == null
+types === null
 
 // undefined
 typeof types === 'undefined'
 ```
 
-用===代替==
+用 === 代替 ==
 ```js
 // 如果处理不当，它会极大地影响程序逻辑。这就像，你想向左走，但由于某种原因，你向右走
 0 == false // true
 0 === false // false
-2 == "2" // true
-2 === "2" // false
+2 == '2' // true
+2 === '2' // false
 
 // 例子
-const value = "500";
+const value = '500';
 if (value === 500) {
   console.log(value);
   // 条件不成立，不会进入
 }
 
-if (value === "500") {
+if (value === '500') {
   console.log(value);
   // 条件成立，会进入
 }
@@ -866,6 +881,7 @@ __【建议】转换成 string 时，使用 + ''__
 __不推荐：__
 
 ```javascript
+let num = 123;
 
 new String(num);
 num.toString();
@@ -875,7 +891,7 @@ String(num);
 __推荐：__
 
 ```javascript
-
+let num = 123;
 num + '';
 ```
 
@@ -885,14 +901,15 @@ __【建议】转换成 number 时，通常使用 +__
 __不推荐：__
 
 ```javascript
+let str = '123';
 Number(str);
 ```
 
 __推荐：__
 
 ```javascript
-+str;
-
+let str = '123';
+str = +str;
 ```
 
 __【建议】string 转换成 number，要转换的字符串结尾包含非数字并期望忽略时，使用 parseInt__
@@ -967,7 +984,7 @@ __推荐：__
 ```javascript
 let obj = {};
 ```
-__【建议】对象创建时，如果一个对象的所有 属性 均可以不添加引号，建议所有 属性 不添加引号__
+__【建议】对象创建时，如果一个对象的所有“属性”均可以不添加引号__
 
 __推荐：__
 
@@ -1008,16 +1025,16 @@ __不推荐：__
 ```javascript
 const menuConfig = {
   title: null,
-  body: "Bar",
+  body: 'Bar',
   buttonText: null,
-  cancellable: true
+  cancel: true
 };
 
 function createMenu(config) {
-  config.title = config.title || "Foo";
-  config.body = config.body || "Bar";
-  config.buttonText = config.buttonText || "Baz";
-  config.cancellable = config.cancellable !== undefined ? config.cancellable : true;
+  config.title = config.title || 'Foo';
+  config.body = config.body || 'Bar';
+  config.buttonText = config.buttonText || 'confirm';
+  config.cancel = config.cancel !== undefined ? config.cancel : true;
 }
 
 createMenu(menuConfig);
@@ -1027,25 +1044,21 @@ __推荐：__
 
 ```javascript
 const menuConfig = {
-  title: "Order",
-  // User did not include 'body' key
-  buttonText: "Send",
+  title: 'Order',
+  buttonText: 'Send',
   cancellable: true
 };
 
 function createMenu(config) {
   config = Object.assign(
     {
-      title: "Foo",
-      body: "Bar",
-      buttonText: "Baz",
-      cancellable: true
+      title: 'Foo',
+      body: 'Bar',
+      buttonText: '确认',
+      cancel: true
     },
     config
   );
-
-  // config now equals: {title: "Order", body: "Bar", buttonText: "Send", cancellable: true}
-  // ...
 }
 
 createMenu(menuConfig);
@@ -1062,7 +1075,8 @@ let person = {
     info: {
         sex:'男'
     }
-}
+};
+
 function  getMaleSex () {
     if (person.info.sex === '男') {
         console.log(person.info.sex)
@@ -1080,6 +1094,7 @@ let person = {
 }
 function  getMaleSex () {
     let sex = person.info.sex;
+
     if (sex === '男') {
         console.log(sex)
     }
@@ -1094,12 +1109,10 @@ __禁止：__
 
 ```javascript
 // 以下行为绝对禁止
-String.prototype.trim = function () {
-};
+String.prototype.trim = function () {};
+
+Array.prototype.isArray = function () {};
 ```
-
-__【强制】属性访问时，尽量使用 .号__
-
 
 ## 3.7 数组
 
@@ -1119,10 +1132,6 @@ let arr = [];
 ```
 
 __【强制】遍历数组不使用 for in__
-
-
-__【建议】尽量使用数组的 sort 方法__
-
 
 __【建议】清空数组使用 arr = []__
 

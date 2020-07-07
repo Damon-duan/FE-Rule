@@ -129,13 +129,13 @@
 }
 
 /* not good */
-.element, .dialog {
+.element,
+.dialog {
     ...
 }
 
 /* good */
-.element,
-.dialog {
+.element, .dialog {
     ...
 }
 ```
@@ -174,7 +174,6 @@
 - 类名使用小写字母，以中划线分隔
 - id采用中线式命名
 - scss中的变量、函数、混合、placeholder采用中线式命名
-- 插件外层盒子以daq开头
 
 ```css
 /* class */
@@ -190,20 +189,18 @@
 /* 变量 */
 $color-black: #000;
 
-/* 插件盒子 */
-.daq-dialog {
-    ...
-}
 ```
 
 # 7 声明顺序
 
 相关的属性声明应当归为一组，并按照下面的顺序排列：
 
-- Positioning
-- 2. Box model
-- 3. Typographic
-- 4. Visual
+- 1. Positioning[定位]
+- 2. Box model[盒模型]
+- 3. Typographic[字体排版属性]
+- 4. Visual[视觉属性]
+- 5. Misc[其他]
+
 由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型排在第二位，因为它决定了组件的尺寸和位置。
 
 其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面。
