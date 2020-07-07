@@ -20,8 +20,8 @@
 如图所示：
 
 <p>
-  <img src="./images/open-file.png" alt="open-file" />
-  <img src="./images/plugins-sass-install.png" alt="plugins-sass-install" />
+  <img src="images/open-file.png" alt="open-file" />
+  <img src="images/plugins-sass-install.png" alt="plugins-sass-install" />
 </p>
 
 
