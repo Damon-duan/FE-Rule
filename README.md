@@ -2,7 +2,7 @@
 
 版本  |  说明  |  时间  |  参与编辑人员
 ------|--------|--------|--------
-v1.0  |初版    |2020-7-7 |许振武 高荣君 段舒文
+v1.0  |初版    |2020-7-7 |
 
 * [浏览器是如何工作的](https://juejin.im/post/5e47cb68f265da57584d9a54?utm_source=gold_browser_extension)
 * [HTML 编码规范](./html-rule.md)
