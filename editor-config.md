@@ -34,8 +34,8 @@
 如图所示：
 
 <p>
-  <img src="http://wiki.gogpay.cn/download/attachments/45842538/open-file.png?version=2&modificationDate=1562753222000&api=v2" alt="open-file" />
-  <img src="http://wiki.gogpay.cn/download/attachments/45842538/plugins-sass-install.png?version=1&modificationDate=1562753243000&api=v2" alt="plugins-vue-install" />
+  <img src="./images/open-file.png" alt="open-file" />
+  <img src="./images/plugins-vue-install.png" alt="plugins-vue-install" />
 </p>
 
 

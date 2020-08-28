@@ -9,7 +9,9 @@ v1.0  |初版    |2020-7-7 |许振武 高荣君 段舒文
 * [Javascript 编码规范](./javascript-rule.md)
 * [CSS 编码规范](./css-rule.md)
 * [Vue 项目开发规范](./vue-rule.md)
+* [Vue 实用技巧](./vue-skill.md)
 * [Javascript 开发技巧](./js-skill.md)
+* [Vue项目上线做的一些基本优化](./optimize-skill.md)
 * [编辑器配置教程](./editor-config.md)
 
 
