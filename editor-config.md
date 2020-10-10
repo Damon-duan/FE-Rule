@@ -17,12 +17,8 @@
 
 * 搜索sass, 结果中有Sass Lint和Sass support都需要安装
 
-如图所示：
+如图所示：![plugins-sass-install](D:\FE-Rule\images\plugins-sass-install.png)
 
-<p>
-![open-file](https://github.com/Damon-duan/FE-Rule/blob/master/images/open-file.png?raw=true)
-![plugins-sass-install](https://github.com/Damon-duan/FE-Rule/blob/master/images/plugins-sass-install.png?raw=true)
-</p>
 
 
 # 2 安装Vue插件

@@ -120,7 +120,7 @@ __不推荐：__
 __推荐：__
 
 ```html
-<my-component />
+<MyComponent />
 ```
 
 
@@ -151,12 +151,12 @@ export default {
 __不推荐：__
 
 ```html
-<welcome-message greetingText="hi" />
+<WelcomeMessage greetingText="hi" />
 ```
 __推荐：__
 
 ```html
-<welcome-message greeting-text="hi" />
+<WelcomeMessage greeting-text="hi" />
 ```
 
 # 7 Props 换行
@@ -166,13 +166,13 @@ __推荐：__
 __不推荐：__
 
 ```html
-<my-component foo="a" bar="b" baz="c" title="menu" cancel="取消"/>
+<MyComponent foo="a" bar="b" baz="c" title="menu" cancel="取消"/>
 ```
 
 __推荐：__
 
 ```html
-<my-component
+<MyComponent
   foo="a"
   bar="b"
   baz="c"
@@ -188,13 +188,13 @@ __推荐：__
 __不推荐：__
 
 ```html
-<my-component v-if="if" v-show="show" v-model="value" ref="ref" :key="key" :text="text" @input="onInput" @change="onChange"/>
+<MyComponent v-if="if" v-show="show" v-model="value" ref="ref" :key="key" :text="text" @input="onInput" @change="onChange"/>
 ```
 
 __推荐：__
 
 ```html
-<my-component
+<MyComponent
   v-if="if"
   v-show="show"
   v-model="value"

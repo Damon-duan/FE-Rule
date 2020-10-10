@@ -11,6 +11,31 @@
 </script>
 ```
 
+> 组件生命周期hook，通常，您可以向中央监听子组件的生命周期（例如 `mounted`）
+
+```html
+<!-- 子组件 -->
+<script>
+export default {
+  mounted () {
+    this.$emit('on-mounted')
+  }
+}
+</script>
+
+<!-- 父组件 -->
+<template>
+  <child @on-mounted="handleMounted"/>
+</template>
+
+<!-- 或者 -->
+<template>
+  <child @hook:mounted="handleMounted"/>
+</template>
+```
+
+
+
 #2 .sync语法糖
 
 > sync 就是为了实现prop进行“双向绑定”仅此而已（父对子，子对父，来回传）
@@ -178,4 +203,177 @@ this.$watch('count', function(newVal){
 <template v-for="item in 10">
     <div v-if="item % 2 == 0" :key="item">{{item}}</div>
 </template>
+```
+
+#6 深层选择器
+
+> 有时，你需要修改第三方组件的CSS，这些都是`scoped`样式，移除`scoped`或打开一个新的样式是不可能的。现在，深层选择器`>>>` `/deep/` `::v-deep`可以帮助你。
+
+```html
+<style scoped>
+>>> .scoped-third-party-class {
+  color: gray;
+}
+</style>
+
+<style scoped>
+/deep/ .scoped-third-party-class {
+  color: gray;
+}
+</style>
+
+<style scoped>
+::v-deep .scoped-third-party-class {
+  color: gray;
+}
+</style>
+```
+
+#7 高级watcher
+
+> 立即执行。当被监控的prop发生突变时，watch handler就会触发。但有时，它是在组件被创建后才出现的。是的，有一个简单的解决办法：在 `created` 的钩子中调用处理程序，但这看起来并不优雅，同时也增加了复杂性。或者，你可以向观察者添加 `immediate` 属性：
+
+```js
+export default {
+  watch: {
+    value: {
+      handler: 'printValue',
+      immediate: true
+    }
+  },
+
+  methods: {
+    printValue () {
+      console.log(this.value)
+    }
+  }
+}
+```
+
+> 深度监听。有时，watch是属性是一个对象，但是其属性突变无法触发watcher处理程序。在这种情况下，为观察者添加 `deep:true` 可以使用属性的突变可检测到。请注意，当对象具有多个层时，深层可能会导致一些严重的性能问题。最好考虑使用更扁平的数据解构。
+
+```js
+export default {
+  data () {
+    return {
+      value: {
+        one: {
+          two: {
+            three: 3
+          }
+        }
+      }
+    }
+  },
+
+  watch: {
+    value: {
+      handler: 'printValue',
+      deep: true
+    }
+  },
+
+  methods : {
+    printValue () {
+      console.log(this.value)
+    }
+  }
+}
+```
+
+> 多个handlers。实际上，watch可设置为数组，支持的类型为 String、Function、Object。触发后，注册的watch处理程序将被一一调用。
+
+```js
+export default {
+    watch: {
+      value: [
+        'printValue',
+        function (val, oldVal) {
+          console.log(val)
+        },
+        {
+          handler: 'printValue',
+          deep: true
+        }
+      ]
+    },
+    methods : {
+      printValue () {
+        console.log(this.value)
+      }
+    } 
+}
+```
+
+> 订阅多个变量突变。`watcher`不能监听多个变量，但我们可以将目标组合在一起作为一个新的 `computed`，并监视这个新的“变量”。
+
+```js
+export default {
+  computed: {
+    multipleValues () {
+      return {
+        value1: this.value1,
+        value2: this.value2,
+      }
+    }
+  },
+
+  watch: {
+    multipleValues (val, oldVal) {
+      console.log(val)
+    }
+  }
+}
+```
+
+#8 路由器参数解耦
+
+> 我相信这是大多数人处理组件中路由器参数的方式：
+
+```js
+export default {
+  methods: {
+    getRouteParamsId() {
+      return this.$route.params.id
+    }
+  }
+}
+```
+
+> 在组件内部使用 `$route` 会对某个URL产生耦合，这限制了组件的灵活性。正确的解决方案是路由器添加props。
+
+```js
+const Component = import('@/views/hello.vue');
+const router = new VueRouter({
+  routes: [{
+    path: '/:id',
+    component: Component,
+    props: true
+  }]
+})
+```
+
+> 这样，组件可以直接从props获取 `params` 。
+
+```js
+export default {
+  props: ['id'],
+  methods: {
+    getParamsId() {
+      return this.id
+    }
+  }
+}
+```
+
+> 此外，你还可以传入函数以返回自定义 `props`。
+
+```js
+const router = new VueRouter({
+  routes: [{
+    path: '/:id',
+    component: Component,
+    props: router => ({ id: route.params.id })
+  }]
+})
 ```
